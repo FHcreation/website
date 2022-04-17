@@ -1,0 +1,32 @@
+//
+// Breakpoint
+//
+
+@function ds-get-breakpoint($device) {
+
+  @if (global-variable-exists('breakpoint-' + $device)) {
+    $map: (
+      'mobile': $breakpoint-mobile,
+      'mobile-large': $breakpoint-mobile-large,
+      'tablet-portrait': $breakpoint-tablet-portrait,
+      'tablet-landscape': $breakpoint-tablet-landscape,
+      'desktop': $breakpoint-desktop,
+      'desktop-large': $breakpoint-desktop-large,
+      'desktop-extra-large': $breakpoint-desktop-extra-large,
+      'desktop-extra-larger': $breakpoint-desktop-extra-larger,
+    );
+
+    @each $key, $val in $map {
+
+      @if ($device == $key) {
+
+        @return $val;
+      }
+    }
+  }
+
+  @else {
+
+    @return null;
+  }
+}

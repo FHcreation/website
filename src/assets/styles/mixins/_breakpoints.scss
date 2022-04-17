@@ -1,0 +1,14 @@
+//
+// Breakpoint
+//
+
+@mixin breakpoint($device) {
+
+  @if($device) {
+
+    @media only screen and (min-width: ds-get-breakpoint($device)) {
+
+      @content;
+    }
+  }
+}
