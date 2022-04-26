@@ -9,14 +9,17 @@
     <v-img
       v-if="image.src"
       class="creation__image"
-      max-height="150"
-      max-width="250"
       min-width="250"
       :src="image.src"
     />
     <section
-     ref="hoverRef"
+      class="creation__text"
+      :style="getTextColor"
     >
+      <div
+        class="creation__text-background"
+        :style="getBackground"
+      />
       <h3 v-if="title">{{ title }}</h3>
       <p
         v-if="text"
@@ -24,18 +27,11 @@
         v-html="truncatedText"
       />
     </section>
-    <div v-if="hovering">
-      <p
-        class="creation__popover"
-        v-html="text"
-      />
-    </div>
   </div>
 </template>
 
 <script>
-import { computed, defineComponent, ref, inject } from 'vue'
-import { useHover } from '../assets/scripts/helpers/hover'
+import { computed, defineComponent } from 'vue'
 
 export default defineComponent({
   name: 'CreationItem',
@@ -59,19 +55,32 @@ export default defineComponent({
     text: {
       type: String,
       default: null
+    },
+    maxText: {
+      type: Number,
+      default: 2000
+    },
+    background: {
+      type: String,
+      default: null
+    },
+    textColor: {
+      type: String,
+      default: null
     }
   },
   setup (props) {
-    const viewport = inject('viewport')
-    const truncatedLimit = computed(() => viewport.isTabletLandscapeAndUp ? 250 : 200)
-    const truncatedText = computed(() => props.text.length > truncatedLimit.value ? `${props.text.slice(0, truncatedLimit.value)} ...` : props.text)
-    const hoverRef = ref(null)
-    const hovering = props.text.length > truncatedLimit.value && useHover(hoverRef)
-
+    const truncatedText = computed(() => props.text.length > props.maxText ? `${props.text.slice(0, props.maxText)} ...` : props.text)
+    const getBackground = computed(() => ({
+      'background-color': props.background
+    }))
+    const getTextColor = computed(() => ({
+      color: props.textColor
+    }))
     return {
       truncatedText,
-      hoverRef,
-      hovering
+      getBackground,
+      getTextColor
     }
   }
 })
@@ -83,19 +92,19 @@ export default defineComponent({
   flex-direction: column;
   overflow: hidden;
 
-  @include breakpoint('tablette-landscape') {
+  @include breakpoint('tablet-landscape') {
     flex-direction: row;
-    align-items: center;
   }
 
   &--inverted {
 
-    @include breakpoint('tablette-landscape') {
+    @include breakpoint('tablet-landscape') {
       flex-direction: row-reverse;
 
-      #{$self}__image {
-        margin-left: 1rem;
-        margin-right: 0;
+      #{$self}__text {
+        border-top-right-radius: 0;
+        border-top-left-radius: 5rem;
+        text-align: right;
       }
     }
   }
@@ -105,13 +114,34 @@ export default defineComponent({
   }
 
   &__image {
-    margin-right: 1rem;
+    max-height: 150px;
+    max-width: 250px;
+
+    @include breakpoint('tablet-portrait') {
+      max-height: 300px;
+      max-width: 500px;
+    }
   }
 
-  &__popover {
-    position: absolute;
-    inset: 1rem;
-    z-index: 100;
+  &__text {
+    flex: 1;
+    position: relative;
+    padding: 0.5rem;
+    overflow: hidden;
+    text-align: left;
+
+    @include breakpoint('tablet-portrait') {
+      border-top-right-radius: 5rem;
+      padding: 0.5rem 1rem;
+    }
+
+    &-background {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      opacity: 30%;
+      inset: 0;
+    }
   }
 }
 </style>

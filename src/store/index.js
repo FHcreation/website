@@ -65,16 +65,62 @@ export default createStore({
       gallery: {
         menu: 'Galerie',
         title: 'Galerie',
+        description: 'Voici notre <b>Galerie</b>',
         icon: 'mdi-folder-multiple-image',
         link: '/galerie',
         categories: [
           {
             name: 'gravure',
             title: 'Gravure sur bois',
-            content: [
+            color: 'brown',
+            textColor: 'white',
+            contents: [
               {
                 title: 'premier',
                 text: 'some text',
+                image: {
+                  src: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQlSdIiUke8y4Vv5lY36TlxcG_8gccovq0QmtLd1KTfecBnATKIV2XK1-a-bzRBu38p0Iw&usqp=CAU'
+                }
+              },
+              {
+                title: 'premier',
+                text: 'some text',
+                image: {
+                  src: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQlSdIiUke8y4Vv5lY36TlxcG_8gccovq0QmtLd1KTfecBnATKIV2XK1-a-bzRBu38p0Iw&usqp=CAU'
+                }
+              },
+              {
+                title: 'premier',
+                text: 'some text',
+                image: {
+                  src: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQlSdIiUke8y4Vv5lY36TlxcG_8gccovq0QmtLd1KTfecBnATKIV2XK1-a-bzRBu38p0Iw&usqp=CAU'
+                }
+              }
+            ]
+          },
+          {
+            name: 'laser',
+            title: 'Gravure au laser',
+            color: 'silver',
+            textColor: 'black',
+            contents: [
+              {
+                title: 'premier',
+                text: 'some text',
+                image: {
+                  src: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTYdxhKiJoX5xcmKgeooEqcy__-it9Hgo5jfYeMSlH9Z7jddu3zvaXScKq_5P9V75RMh8U&usqp=CAU'
+                }
+              },
+              {
+                title: 'Deuxième',
+                text: 'some text',
+                image: {
+                  src: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQlSdIiUke8y4Vv5lY36TlxcG_8gccovq0QmtLd1KTfecBnATKIV2XK1-a-bzRBu38p0Iw&usqp=CAU'
+                }
+              },
+              {
+                title: 'Three',
+                text: 'Ce texte est <b>super</b> et en HTML',
                 image: {
                   src: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQlSdIiUke8y4Vv5lY36TlxcG_8gccovq0QmtLd1KTfecBnATKIV2XK1-a-bzRBu38p0Iw&usqp=CAU'
                 }
@@ -100,7 +146,7 @@ export default createStore({
         })
         .filter((v) => !!v),
     homeData: (state) => state.configuration.homePage,
-    galeryData: (sate, getters) => getters.getConfiguration.galery,
+    galleryData: (state) => state.configuration.gallery,
     filters: (state, getters) => getters.galeryData.map((data) => data.name),
     getGaleryDataByName: (state, getters) => (name) =>
       getters.getGaleryDataByName.find((data) => data.name === name)

@@ -5,7 +5,7 @@
     :color="color"
   >
     <v-card-text class="white--text">
-      Copyright 2022 - {{ new Date().getFullYear() }} FhCreation par Jonathan Moutier
+      Copyright 2022 - {{ new Date().getFullYear() }} FhCreation
     </v-card-text>
     <div>
       <h3 class="pb-2">Retrouvez nous sur :</h3>
@@ -48,16 +48,23 @@ export default defineComponent({
 .fh-footer {
   width: 100%;
   display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: flex-end;
+  flex-direction: column-reverse;
+  justify-content: center;
+  align-items: center;
 
-  @include breakpoint('tablette-portrait') {
+  @include breakpoint('tablet-portrait') {
+    justify-content: space-between;
     flex-direction: row;
+    align-items: flex-end;
   }
 
   &__socials {
     display: inline-flex;
+    margin-bottom: 1rem;
+
+     @include breakpoint('tablet-portrait') {
+      margin-bottom: 0;
+    }
   }
 }
 </style>

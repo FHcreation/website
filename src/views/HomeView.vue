@@ -182,7 +182,7 @@ export default defineComponent({
       max-width: 60%;
       max-height: 20rem;
 
-      @include breakpoint('tablette-landscape') {
+      @include breakpoint('tablet-landscape') {
         max-height: auto;
       }
     }
