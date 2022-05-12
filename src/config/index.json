@@ -115,14 +115,14 @@
                         "title": "Deuxième",
                         "text": "some text",
                         "image": {
-                            "src": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQlSdIiUke8y4Vv5lY36TlxcG_8gccovq0QmtLd1KTfecBnATKIV2XK1-a-bzRBu38p0Iw&usqp=CAU"
+                            "src": "https://drive.google.com/uc?export=view&id=1JRY5zuVZTv0UZWMVlDvXAnGu8XiAuadX"
                         }
                     },
                     {
                         "title": "Three",
                         "text": "Ce texte est <b>super</b> et en HTML",
                         "image": {
-                            "src": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQlSdIiUke8y4Vv5lY36TlxcG_8gccovq0QmtLd1KTfecBnATKIV2XK1-a-bzRBu38p0Iw&usqp=CAU"
+                            "src": "https://drive.google.com/uc?export=view&id=1JRY5zuVZTv0UZWMVlDvXAnGu8XiAuadX"
                         }
                     }
                 ]
