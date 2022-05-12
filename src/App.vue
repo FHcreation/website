@@ -19,7 +19,7 @@
 import NavBar from './components/NavBar.vue'
 import FhFooter from './components/Footer.vue'
 import { useStore } from 'vuex'
-import { defineComponent, computed } from 'vue'
+import { defineComponent, computed, onBeforeMount } from 'vue'
 
 export default defineComponent({
   name: 'App',
@@ -32,6 +32,10 @@ export default defineComponent({
     const configApp = computed(() => store.getters.appConfig)
     const appMenus = computed(() => store.getters.getMenus)
     const footerData = computed(() => configApp.value.footer)
+
+    onBeforeMount(() => {
+      store.dispatch('fetchConfig')
+    })
 
     return {
       configApp,

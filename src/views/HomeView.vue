@@ -93,7 +93,6 @@ export default defineComponent({
       color: homePageData.value.skills.textColor
     }))
 
-    console.info(getTopStyle)
     return {
       homePageData,
       content,

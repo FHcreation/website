@@ -28,17 +28,18 @@ export default createStore({
       getters.getGaleryDataByName.find((data) => data.name === name)
   },
   mutations: {
-    SET_CONFIG ({ state }, payload) {
+    SET_CONFIG (state, payload) {
       state.configuration = payload
     }
   },
   actions: {
-    fetchConfig ({ commit }) {
+    async fetchConfig ({ commit }) {
       try {
-        const result = axios.get('')
-        commit('SET_CONFIG', result)
+        const { data } = (await axios.get('https://raw.githubusercontent.com/FHcreation/website/master/src/config/index.json'))
+        console.info(data)
+        commit('SET_CONFIG', data)
       } catch (error) {
-        console.error('Error during fetch config')
+        console.error('Error during fetch config', error)
       }
     }
   },
