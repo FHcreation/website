@@ -1,7 +1,7 @@
 {
     "app": {
         "title": "FhCréation",
-        "navColor": "purple",
+        "navColor": "blue",
         "footer": {
             "color": "brown",
             "socials": [
