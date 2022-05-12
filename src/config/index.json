@@ -100,7 +100,7 @@
             },
             {
                 "name": "laser",
-                "title": "Gravure au laser",
+                "title": "Découpe au laser",
                 "color": "silver",
                 "textColor": "black",
                 "contents": [
@@ -108,7 +108,7 @@
                         "title": "premier",
                         "text": "some text",
                         "image": {
-                            "src": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTYdxhKiJoX5xcmKgeooEqcy__-it9Hgo5jfYeMSlH9Z7jddu3zvaXScKq_5P9V75RMh8U&usqp=CAU"
+                            "src": "https://drive.google.com/uc?export=view&id=1ngJ9vo2AMIiwsW_iQiZQDCy60BLa7VDI"
                         }
                     },
                     {
