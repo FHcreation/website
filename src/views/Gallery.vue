@@ -1,49 +1,49 @@
 <template>
   <div class="gallery">
-    <h1 class="gallery__title">{{ galleryPageData.title }}</h1>
-    <p
-      class="gallery__descriptif"
-      v-html="galleryPageData.description"
-    />
-    <ul
-      class="gallery__filters"
-    >
-      <li
-        class="gallery__filters-filter"
-        :class="filter.name === currentFilter && 'gallery__filters-filter--actif'"
-        v-for="filter in galleryPageData.categories"
-        :key="filter.name"
-        @click="onChangeFilter(filter)"
+    <section class="gallery__wrapper">
+      <h1 class="gallery__title">{{ galleryPageData.title }}</h1>
+      <p
+        class="gallery__descriptif"
+        v-html="galleryPageData.description"
+      />
+      <ul
+        class="gallery__filters"
       >
-        <div
-          class="gallery__filters-filter-background"
-          :style="getFilterBackground(filter)"
-        />
-        <span
-          class="gallery__filters-filter-text"
-          :style="getFilterTextColor(filter)"
+        <li
+          class="gallery__filters-filter"
+          :class="filter.name === currentFilter && 'gallery__filters-filter--actif'"
+          v-for="filter in galleryPageData.categories"
+          :key="filter.name"
+          @click="onChangeFilter(filter)"
         >
-          {{ filter.name }}
-        </span>
-      </li>
-    </ul>
-    <h2 class="gallery__category">{{ getCurrentCatTitle }}</h2>
-    <ul class="gallery__content">
-      <li
-        class="gallery__content-item"
-        v-for="(item, i) in currentCat.contents"
-        :key="item.text"
-      >
-        <creation
-          :title="item.title"
-          :text="item.text"
-          :image="item.image"
-          :inverted="i % 2 === 0"
-          :background="getCurrentCatBackground"
-          :text-color="getCurrentCatTextColor"
-        />
-      </li>
-    </ul>
+          <div
+            class="gallery__filters-filter-background"
+            :style="getFilterBackground(filter)"
+          />
+          <span
+            class="gallery__filters-filter-text"
+            :style="getFilterTextColor(filter)"
+          >
+            {{ filter.name }}
+          </span>
+        </li>
+      </ul>
+      <h2 class="gallery__category">{{ getCurrentCatTitle }}</h2>
+      <ul class="gallery__content">
+        <li
+          class="gallery__content-item"
+          v-for="(item, i) in currentCat.contents"
+          :key="item.text"
+        >
+          <creation
+            :title="item.title"
+            :text="item.text"
+            :image="item.image"
+            :inverted="i % 2 === 0"
+          />
+        </li>
+      </ul>
+    </section>
   </div>
 </template>
 
@@ -108,6 +108,14 @@ export default defineComponent({
 <style lang="scss">
 .gallery {
   min-height: 80vh;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+
+  &__wrapper {
+    max-width: 1200px;
+    width: 100%;
+  }
 
   &__title {
     margin-top: 1rem;

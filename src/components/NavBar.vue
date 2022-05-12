@@ -1,8 +1,5 @@
 <template>
   <v-toolbar app :color="color">
-    <!-- <span class="hidden-sm-and-up">
-      <v-toolbar-side-icon @click="sidebar = !sidebar"> </v-toolbar-side-icon>
-    </span> -->
     <v-toolbar-title tag="h1">
       <router-link
         to="/"
@@ -19,7 +16,9 @@
     <v-toolbar-items>
       <v-btn flat v-for="item in menus" :key="item.title" :to="item.link">
         <v-icon left dark>{{ item.icon }}</v-icon>
-        {{ item.title }}
+        <span class="d-none d-sm-flex">
+          {{ item.title }}
+        </span>
       </v-btn>
     </v-toolbar-items>
   </v-toolbar>

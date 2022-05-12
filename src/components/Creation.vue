@@ -100,12 +100,6 @@ export default defineComponent({
 
     @include breakpoint('tablet-landscape') {
       flex-direction: row-reverse;
-
-      #{$self}__text {
-        border-top-right-radius: 0;
-        border-top-left-radius: 5rem;
-        text-align: right;
-      }
     }
   }
 
@@ -131,7 +125,6 @@ export default defineComponent({
     text-align: left;
 
     @include breakpoint('tablet-portrait') {
-      border-top-right-radius: 5rem;
       padding: 0.5rem 1rem;
     }
 
